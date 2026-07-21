@@ -1,0 +1,67 @@
+#work.work-editorial {
+  --hero-bg: #b2dff7;
+  --hero-text: #18181b;
+  --hero-text-muted: #4a4a52;
+  --hero-accent: #9b87d9;
+  --hero-border: rgba(24, 24, 27, 0.12);
+  --work-card-bg: color-mix(in srgb, #fffdf9 88%, var(--hero-bg));
+
+  background-color: var(--hero-bg);
+  color: var(--hero-text);
+}
+
+.work-card {
+  background-color: var(--work-card-bg);
+  border: 1px solid color-mix(in srgb, var(--hero-text) 8%, transparent);
+  box-shadow: 0 2px 18px rgba(24, 24, 27, 0.06);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.work-card:hover,
+.work-card:focus-within {
+  border-color: color-mix(in srgb, var(--hero-accent) 28%, transparent);
+  box-shadow: 0 4px 24px rgba(24, 24, 27, 0.08);
+}
+
+.work-card-hover-story {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  margin-top: 0;
+  transition:
+    grid-template-rows 0.45s cubic-bezier(0.42, 0, 0.58, 1),
+    opacity 0.4s cubic-bezier(0.42, 0, 0.58, 1),
+    margin-top 0.45s cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+.work-card-hover-story-inner {
+  overflow: hidden;
+}
+
+.work-card:hover .work-card-hover-story,
+.work-card:focus-within .work-card-hover-story {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  margin-top: 0.875rem;
+}
+
+@media (hover: none) {
+  .work-card-hover-story {
+    grid-template-rows: 1fr;
+    opacity: 0.9;
+    margin-top: 0.875rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .work-card-hover-story {
+    transition: none;
+  }
+
+  .work-card:hover .work-card-hover-story,
+  .work-card:focus-within .work-card-hover-story {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    margin-top: 0.875rem;
+  }
+}

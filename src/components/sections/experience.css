@@ -1,0 +1,10 @@
+#experience.experience-editorial {
+  --hero-bg: #b2dff7;
+  --hero-text: #18181b;
+  --hero-text-muted: #4a4a52;
+  --hero-accent: #9b87d9;
+  --hero-border: rgba(24, 24, 27, 0.12);
+
+  background-color: var(--hero-bg);
+  color: var(--hero-text);
+}

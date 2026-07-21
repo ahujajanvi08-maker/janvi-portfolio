@@ -1,0 +1,47 @@
+#connect.connect-editorial {
+  --hero-bg: #b2dff7;
+  --hero-text: #18181b;
+  --hero-text-muted: #4a4a52;
+  --hero-accent: #9b87d9;
+  --hero-border: rgba(24, 24, 27, 0.12);
+
+  background-color: var(--hero-bg);
+  color: var(--hero-text);
+}
+
+.connect-input {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background-color: color-mix(in srgb, #fffdf9 70%, var(--hero-bg));
+}
+
+.connect-input:focus {
+  outline: none;
+  border-color: rgba(0, 0, 0, 0.28);
+}
+
+.connect-submit {
+  background-color: #18181b;
+  color: #ffffff;
+  transition: opacity 0.22s ease;
+}
+
+.connect-submit:hover:not(:disabled) {
+  opacity: 0.85;
+}
+
+.connect-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.connect-clock {
+  background: none;
+  border: none;
+  color: inherit;
+  padding: 0;
+}
+
+.connect-footer-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

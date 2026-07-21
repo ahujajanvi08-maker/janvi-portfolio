@@ -1,0 +1,56 @@
+#hero.hero-editorial {
+  --hero-bg: #b2dff7;
+  --hero-text: #18181b;
+  --hero-text-muted: #4a4a52;
+  --hero-accent: #9b87d9;
+  --hero-accent-soft: #b8a8e8;
+  --hero-border: rgba(24, 24, 27, 0.12);
+
+  background-color: var(--hero-bg);
+  color: var(--hero-text);
+}
+
+.hero-footer-link {
+  color: var(--hero-text-muted);
+  transition: color 0.22s ease;
+}
+
+.hero-footer-link:hover {
+  color: var(--hero-text);
+}
+
+.hero-footer-divider {
+  color: color-mix(in srgb, var(--hero-text) 25%, transparent);
+}
+
+.hero-shell {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: min(92vw, 1400px);
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .hero-shell {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-shell {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+a.hero-footer-link {
+  cursor: pointer;
+}
+
+a.hero-footer-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

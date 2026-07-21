@@ -1,26 +1,141 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --cream: #faf6f0;
+  --paper: #fffdf9;
+  --ink: #2a2623;
+  --ink-muted: #5c5650;
+  --ink-faint: #9a928a;
+
+  --sage: #b8c4b0;
+  --sage-deep: #9baf94;
+  --lavender: #c4b8d4;
+  --lavender-deep: #b8a9c9;
+  --sky: #b8ccd8;
+  --sky-deep: #a8c4d4;
+  --terracotta: #d4b0a0;
+  --terracotta-deep: #c4908a;
+
+  --shadow-soft: rgba(42, 38, 35, 0.05);
+  --shadow-medium: rgba(42, 38, 35, 0.09);
+  --shadow-deep: rgba(42, 38, 35, 0.14);
+
+  --section-bg: var(--cream);
+  --section-accent: transparent;
+
+  --background: var(--section-bg);
+  --foreground: var(--ink);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-cream: var(--cream);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-faint: var(--ink-faint);
+  --color-sage: var(--sage);
+  --color-sage-deep: var(--sage-deep);
+  --color-lavender: var(--lavender);
+  --color-lavender-deep: var(--lavender-deep);
+  --color-sky: var(--sky);
+  --color-sky-deep: var(--sky-deep);
+  --color-terracotta: var(--terracotta);
+  --color-terracotta-deep: var(--terracotta-deep);
+  --font-display: var(--font-fraunces);
+  --font-serif: var(--font-source-serif);
+  --font-sans: var(--font-dm-sans);
+  --font-hand: var(--font-caveat);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--section-bg);
+  color: var(--ink);
+  font-family: var(--font-source-serif), Georgia, "Times New Roman", serif;
+  overflow-x: hidden;
+  transition: background-color 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+::selection {
+  background: color-mix(in srgb, var(--lavender) 40%, transparent);
+  color: var(--ink);
+}
+
+.grain::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0.028;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+.section-atmosphere {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  transition: background-color 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.section-atmosphere::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.35;
+  transition: background 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+  background: radial-gradient(
+    ellipse 80% 60% at 70% 20%,
+    var(--section-accent),
+    transparent 70%
+  );
+}
+
+.notebook-lines {
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 27px,
+    color-mix(in srgb, var(--ink) 5%, transparent) 27px,
+    color-mix(in srgb, var(--ink) 5%, transparent) 28px
+  );
+}
+
+.accent-sage { --item-accent: var(--sage-deep); }
+.accent-lavender { --item-accent: var(--lavender-deep); }
+.accent-sky { --item-accent: var(--sky-deep); }
+.accent-terracotta { --item-accent: var(--terracotta-deep); }
+
+@media (prefers-reduced-motion: reduce) {
+  body,
+  .section-atmosphere,
+  .section-atmosphere::after {
+    transition: none;
+  }
 }

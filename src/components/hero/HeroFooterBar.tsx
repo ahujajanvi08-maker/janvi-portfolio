@@ -92,7 +92,7 @@ export function HeroFooterBar() {
             |
           </span>
           <a
-            href="mailto:janvi.ahuja26@imperial.ac.uk"
+            href={`mailto:${footer.email}`}
             className="hero-footer-link inline-flex items-center gap-2 font-sans text-[0.8125rem] tracking-wide"
           >
             <EmailIcon />

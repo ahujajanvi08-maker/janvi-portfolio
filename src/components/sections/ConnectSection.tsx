@@ -4,13 +4,14 @@ import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { revealSoft, viewport } from "@/lib/motion";
+import { hero } from "@/content/site";
 import "@/components/hero/hero.css";
 import "./connect.css";
 
-function getLondonGreeting(date: Date): string {
+function getJabalpurGreeting(date: Date): string {
   const hour = Number(
-    new Intl.DateTimeFormat("en-GB", {
-      timeZone: "Europe/London",
+    new Intl.DateTimeFormat("en-IN", {
+      timeZone: "Asia/Kolkata",
       hour: "numeric",
       hour12: false,
     }).format(date),
@@ -21,7 +22,7 @@ function getLondonGreeting(date: Date): string {
   return "Good evening";
 }
 
-function LondonClock() {
+function JabalpurClock() {
   const [time, setTime] = useState("");
   const [greeting, setGreeting] = useState("");
   const [use12Hour, setUse12Hour] = useState(false);
@@ -30,15 +31,15 @@ function LondonClock() {
     const update = () => {
       const now = new Date();
       setTime(
-        new Intl.DateTimeFormat("en-GB", {
-          timeZone: "Europe/London",
+        new Intl.DateTimeFormat("en-IN", {
+          timeZone: "Asia/Kolkata",
           hour: "2-digit",
           minute: "2-digit",
           second: "2-digit",
           hour12: use12Hour,
         }).format(now),
       );
-      setGreeting(getLondonGreeting(now));
+      setGreeting(getJabalpurGreeting(now));
     };
 
     update();
@@ -52,7 +53,7 @@ function LondonClock() {
         type="button"
         onClick={() => setUse12Hour((current) => !current)}
         className="connect-clock cursor-pointer font-sans text-[clamp(1.125rem,1.75vw,1.5rem)] font-light tabular-nums tracking-wide transition-opacity duration-200 hover:opacity-75"
-        aria-label={`London time. ${greeting}. Click to switch to ${use12Hour ? "24" : "12"} hour format.`}
+        aria-label={`Jabalpur time. ${greeting}. Click to switch to ${use12Hour ? "24" : "12"} hour format.`}
       >
         {time}
       </button>
@@ -178,15 +179,15 @@ export function ConnectSection() {
           <div className="flex flex-col gap-8 md:gap-10">
             <div className="flex flex-col items-center justify-between gap-6 text-center md:flex-row md:items-center md:text-left">
               <p className="font-sans text-[clamp(1rem,1.5vw,1.25rem)] font-light text-white/90">
-                <span aria-hidden="true">📍</span> London, UK
+                <span aria-hidden="true">📍</span> Jabalpur, India
               </p>
 
-              <LondonClock />
+              <JabalpurClock />
             </div>
 
             <div className="flex items-center justify-center gap-8 md:gap-12">
               <a
-                href="mailto:janvi.ahuja26@imperial.ac.uk"
+                href={`mailto:${hero.footer.email}`}
                 className="connect-footer-link font-serif text-[clamp(0.9375rem,1.4vw,1.125rem)] font-bold uppercase tracking-[0.08em] text-white"
               >
                 Email

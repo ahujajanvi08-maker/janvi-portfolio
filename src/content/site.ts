@@ -27,8 +27,8 @@ export const hero = {
       label: "LinkedIn",
       href: "https://www.linkedin.com/in/janviahuja",
     },
-    email: "janvi.ahuja26@imperial.ac.uk",
-    location: "London, UK",
+    email: "ahujajanvi08@gmail.com",
+    location: "Jabalpur, India",
   },
 } as const;
 
@@ -186,7 +186,7 @@ export const connect = {
   closing:
     "If something here resonated with you, I'd love to start a conversation.",
   signOff: "Janvi",
-  email: "hello@janviahuja.com",
+  email: "ahujajanvi08@gmail.com",
 } as const;
 
 export const sectionAtmosphere = [

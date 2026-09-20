@@ -30,6 +30,11 @@ export const metadata: Metadata = {
   title: "Janvi Ahuja",
   description:
     "Curious enough to explore. Driven enough to build. A personal portfolio at the intersection of business, technology, and execution.",
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
   openGraph: {
     title: "Janvi Ahuja",
     description:
